@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %}</title>
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- STYLES -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <!-- NAV -->
+        <nav class="nav container">
+            <a href="" class="nav__logo">TasksApp</a>
+        </nav>
+    </header>
+    <!-- PRINCIPAL CONTENT -->
+    <main class="main">
+        {% block content %} {% endblock %}
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" charset="utf-8"></script>
+</body>
+</html>

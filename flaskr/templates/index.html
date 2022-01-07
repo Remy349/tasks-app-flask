@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+    TasksApp
+{% endblock title %}
+
+{% block content %}
+    <section class="home">
+        <div class="home__container">
+            <div class="home__content">
+                <h1 class="home__content-title">
+                    Welcome to TasksApp
+                </h1>
+                <span class="home__content-desc">
+                    A simple app in which you can create a lists for all your tasks
+                    and have it always with you on your phone!
+                </span>
+            </div>
+            <div class="home__forms">
+                <form action="" method="POST" accept-charset="utf-8" class="home__login">
+                    <div class="home__login-title">
+                        <h1>Sign In</h1>
+                    </div>
+                    <div class="home__login-inputs">
+                        <input 
+                            type="text" 
+                            class="home__login-input" 
+                            placeholder="Username"
+                            autocomplete="off"
+                            name="username"
+                        />
+                    </div>
+                    <div class="home__login-inputs">
+                        <input 
+                            type="password" 
+                            class="home__login-input"
+                            placeholder="Password"
+                            name="password"
+                        />
+                    </div>
+                    <a href="" class="home__login-forgot">Forgot password?</a>
+                    <div class="home__login-btns">
+                        <button type="submit" class="home__login-btn">
+                            Sign In
+                        </button>
+                    </div>
+                    <div class="home__login-info">
+                        <span class="home__login-desc">Don´t have an account?</span>
+                        <span class="home__login-logup">Create one!</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

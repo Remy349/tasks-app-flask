@@ -1,0 +1,49 @@
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+$header-height: 3rem;
+
+/* BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: $header-height 0 0 0;
+    font-family: 'Roboto', sans-serif;
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+a { text-decoration: none; }
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1150px;
+}
+
+/* HEADER */
+.header {
+    background: #1a1a1a;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+
+    &__logo {
+        color: #fff;
+        font-size: 1.4rem;
+    }
+}

@@ -14,7 +14,7 @@
     <header class="header">
         <!-- NAV -->
         <nav class="nav container">
-            <a href="" class="nav__logo">TasksApp</a>
+            <a href="{{ url_for('index') }}" class="nav__logo">TasksApp</a>
         </nav>
     </header>
     <!-- PRINCIPAL CONTENT -->
@@ -22,7 +22,13 @@
         {% block content %} {% endblock %}
     </main>
     <!-- FOOTER -->
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__autor">
+                <p>Created by <span>SantiagoMoraga</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- SCRIPTS -->
     <script src="{{ url_for('static', filename='js/main.js') }}" charset="utf-8"></script>

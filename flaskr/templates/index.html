@@ -22,6 +22,7 @@
                         <h1>Sign In</h1>
                     </div>
                     <div class="home__login-inputs">
+                        <i class='bx bx-user home__login-icon'></i>
                         <input 
                             type="text" 
                             class="home__login-input" 
@@ -31,6 +32,7 @@
                         />
                     </div>
                     <div class="home__login-inputs">
+                        <i class='bx bx-lock-alt home__login-icon'></i>
                         <input 
                             type="password" 
                             class="home__login-input"
@@ -46,7 +48,49 @@
                     </div>
                     <div class="home__login-info">
                         <span class="home__login-desc">Don´t have an account?</span>
-                        <span class="home__login-logup">Create one!</span>
+                        <span class="home__login-logup">Create a new one!</span>
+                    </div>
+                </form>
+                <form action="" method="POST" accept-charset="utf-8" class="home__logup">
+                    <div class="home__logup-title">
+                        <h1>Sign Up</h1>
+                    </div>
+                    <div class="home__logup-inputs">
+                        <i class='bx bx-user home__logup-icon'></i>
+                        <input 
+                            type="text" 
+                            class="home__logup-input" 
+                            placeholder="Username"
+                            name="username"
+                            autocomplete="off"
+                        />
+                    </div>
+                    <div class="home__logup-inputs">
+                        <i class='bx bx-lock-alt home__logup-icon'></i>
+                        <input 
+                            type="password" 
+                            class="home__logup-input"
+                            placeholder="Password"
+                            name="password"
+                        />
+                    </div>
+                    <div class="home__logup-inputs">
+                        <i class='bx bx-lock-alt home__logup-icon'></i>
+                        <input 
+                            type="password" 
+                            class="home__logup-input"
+                            placeholder="Password Again"
+                            name="password_again"
+                        />
+                    </div>
+                    <div class="home__logup-btns">
+                        <button class="home__logup-btn" type="submit">
+                            Sign Up
+                        </button>
+                    </div>
+                    <div class="home__logup-info">
+                        <span class="home__logup-desc">Already have an account?</span>
+                        <span class="home__logup-login">Sign In</span>
                     </div>
                 </form>
             </div>

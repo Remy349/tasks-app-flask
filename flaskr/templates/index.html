@@ -17,7 +17,7 @@
                 </span>
             </div>
             <div class="home__forms">
-                <form action="" method="POST" accept-charset="utf-8" class="home__login">
+                <form action="{{ url_for('signin') }}" method="POST" accept-charset="utf-8" class="home__login" id="homeLogin">
                     <div class="home__login-title">
                         <h1>Sign In</h1>
                     </div>
@@ -40,7 +40,9 @@
                             name="password"
                         />
                     </div>
-                    <a href="" class="home__login-forgot">Forgot password?</a>
+                    <div class="home__login-help">
+                        <a href="" class="home__login-forgot">Forgot password?</a>
+                    </div>
                     <div class="home__login-btns">
                         <button type="submit" class="home__login-btn">
                             Sign In
@@ -48,10 +50,10 @@
                     </div>
                     <div class="home__login-info">
                         <span class="home__login-desc">Don´t have an account?</span>
-                        <span class="home__login-logup">Create a new one!</span>
+                        <span class="home__login-logup" id="homeLoginLogup">Create a new one!</span>
                     </div>
                 </form>
-                <form action="" method="POST" accept-charset="utf-8" class="home__logup none">
+                <form action="" method="POST" accept-charset="utf-8" class="home__logup none" id="homeLogup">
                     <div class="home__logup-title">
                         <h1>Sign Up</h1>
                     </div>
@@ -90,7 +92,7 @@
                     </div>
                     <div class="home__logup-info">
                         <span class="home__logup-desc">Already have an account?</span>
-                        <span class="home__logup-login">Sign In</span>
+                        <span class="home__logup-login" id="homeLogupLogin">Sign In</span>
                     </div>
                 </form>
             </div>

@@ -80,6 +80,17 @@ a {
 }
 
 /* INDEX */
+@keyframes animate-forms {
+  0% {
+    trasform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
 .home__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -118,13 +129,13 @@ a {
   border-radius: 0.5rem;
   padding: 2rem 2rem;
   width: 80%;
-  bottom: -6rem;
+  bottom: -6.5rem;
   text-align: center;
-  display: grid;
-  gap: 1.5rem;
+  animation: 0.4s animate-form;
 }
 .home__login-title, .home__logup-title {
   font-size: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 .home__login-inputs, .home__logup-inputs {
   display: grid;
@@ -133,6 +144,7 @@ a {
   background: #ccc;
   padding: 1.125rem 1rem;
   border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 .home__login-icon, .home__logup-icon {
   color: #1a1a1a;
@@ -144,6 +156,9 @@ a {
   background: #ccc;
   font-size: 1.1rem;
   font-weight: 600;
+}
+.home__login-btns, .home__logup-btns {
+  margin-bottom: 1.5rem;
 }
 .home__login-btn, .home__logup-btn {
   width: 100%;
@@ -166,6 +181,10 @@ a {
   color: #243b55;
   font-weight: 700;
   cursor: pointer;
+  animation: 3s animate-forms infinite;
+}
+.home__login-help {
+  margin-bottom: 1.5rem;
 }
 .home__login-forgot {
   font-size: 1.1rem;

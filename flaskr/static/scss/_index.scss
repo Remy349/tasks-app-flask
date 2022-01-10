@@ -1,3 +1,13 @@
+@keyframes animate-forms {
+    0% {
+        trasform: scale(1, 1);
+    } 50% {
+        transform: scale(1.1, 1.1);
+    } 100% {
+        transform: scale(1, 1);
+    }
+}
+
 .home {
     &__container {
         display: grid;
@@ -40,12 +50,15 @@
         border-radius: .5rem;
         padding: 2rem 2rem;
         width: 80%;
-        bottom: -6rem;
+        bottom: -6.5rem;
         text-align: center;
-        display: grid;
-        gap: 1.5rem;
+        animation: .4s animate-form;
 
-        &-title { font-size: 1.2rem; }
+        &-title { 
+            font-size: 1.2rem; 
+            margin-bottom: 1.5rem;
+        }
+        
         &-inputs {
             display: grid;
             grid-template-columns: max-content 1fr;
@@ -53,6 +66,7 @@
             background: #ccc;
             padding: 1.125rem 1rem;
             border-radius: .5rem;
+            margin-bottom: 1.5rem;
         }
 
         &-icon {
@@ -67,6 +81,8 @@
             font-size: 1.1rem;
             font-weight: 600;
         }
+
+        &-btns { margin-bottom: 1.5rem; }
 
         &-btn {
             width: 100%;
@@ -92,10 +108,12 @@
             color: #243b55;
             font-weight: 700;
             cursor: pointer;
+            animation: 3s animate-forms infinite;
         }
     }
 
     &__login {
+        &-help { margin-bottom: 1.5rem; }
         &-forgot {
             font-size: 1.1rem;
             color: #1a1a1a;

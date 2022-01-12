@@ -21,6 +21,7 @@
                     <div class="home__login-title">
                         <h1>Sign In</h1>
                     </div>
+                    <div class="home__login-error" id="homeLoginError"></div>
                     <div class="home__login-inputs">
                         <i class='bx bx-user home__login-icon'></i>
                         <input 
@@ -29,6 +30,7 @@
                             placeholder="Username"
                             autocomplete="off"
                             name="username"
+                            id="usernameLogin"
                         />
                     </div>
                     <div class="home__login-inputs">
@@ -38,6 +40,7 @@
                             class="home__login-input"
                             placeholder="Password"
                             name="password"
+                            id="passwordLogin"
                         />
                     </div>
                     <div class="home__login-help">
@@ -50,49 +53,7 @@
                     </div>
                     <div class="home__login-info">
                         <span class="home__login-desc">Don´t have an account?</span>
-                        <span class="home__login-logup" id="homeLoginLogup">Create a new one!</span>
-                    </div>
-                </form>
-                <form action="" method="POST" accept-charset="utf-8" class="home__logup none" id="homeLogup">
-                    <div class="home__logup-title">
-                        <h1>Sign Up</h1>
-                    </div>
-                    <div class="home__logup-inputs">
-                        <i class='bx bx-user home__logup-icon'></i>
-                        <input 
-                            type="text" 
-                            class="home__logup-input" 
-                            placeholder="Username"
-                            name="username"
-                            autocomplete="off"
-                        />
-                    </div>
-                    <div class="home__logup-inputs">
-                        <i class='bx bx-lock-alt home__logup-icon'></i>
-                        <input 
-                            type="password" 
-                            class="home__logup-input"
-                            placeholder="Password"
-                            name="password"
-                        />
-                    </div>
-                    <div class="home__logup-inputs">
-                        <i class='bx bx-lock-alt home__logup-icon'></i>
-                        <input 
-                            type="password" 
-                            class="home__logup-input"
-                            placeholder="Password Again"
-                            name="password_again"
-                        />
-                    </div>
-                    <div class="home__logup-btns">
-                        <button class="home__logup-btn" type="submit">
-                            Sign Up
-                        </button>
-                    </div>
-                    <div class="home__logup-info">
-                        <span class="home__logup-desc">Already have an account?</span>
-                        <span class="home__logup-login" id="homeLogupLogin">Sign In</span>
+                        <a href="{{ url_for('signup') }}" class="home__login-logup">Create a new one!</a>
                     </div>
                 </form>
             </div>

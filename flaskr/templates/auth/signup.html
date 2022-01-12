@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+    TasksApp - Sign Up
+{% endblock title %}
+
+{% block content %}
+    <section class="signup">
+        <div class="signup__container container">
+            <div class="signup__forms">
+                <form action="{{ url_for('signup') }}" method="POST" accept-charset="utf-8" class="signup__logup" id="homeLogup">
+                    <div class="signup__logup-title">
+                        <h1>Sign Up</h1>
+                    </div>
+                    <div class="signup__logup-error" id="homeLogupError"></div>
+                    <div class="signup__logup-inputs">
+                        <i class='bx bx-user signup__logup-icon'></i>
+                        <input 
+                            type="text" 
+                            class="signup__logup-input" 
+                            placeholder="Username"
+                            name="username"
+                            autocomplete="off"
+                            id="usernameLogup"
+                        />
+                    </div>
+                    <div class="signup__logup-inputs">
+                        <i class='bx bx-lock-alt signup__logup-icon'></i>
+                        <input 
+                            type="password" 
+                            class="signup__logup-input"
+                            placeholder="Password"
+                            name="password"
+                            id="passwordLogup"
+                        />
+                    </div>
+                    <div class="signup__logup-inputs">
+                        <i class='bx bx-lock-alt signup__logup-icon'></i>
+                        <input 
+                            type="password" 
+                            class="signup__logup-input"
+                            placeholder="Confirm password"
+                            id="passwordAgainLogup"
+                        />
+                    </div>
+                    <div class="signup__logup-btns">
+                        <button class="signup__logup-btn" type="submit">
+                            Sign Up
+                        </button>
+                    </div>
+                    <div class="signup__logup-info">
+                        <span class="signup__logup-desc">Already have an account?</span>
+                        <a href="{{ url_for('index') }}" class="signup__logup-login">Sign In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

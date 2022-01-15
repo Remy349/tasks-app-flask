@@ -12,7 +12,17 @@
                     <div class="signup__logup-title">
                         <h1>Sign Up</h1>
                     </div>
-                    <div class="signup__logup-error" id="homeLogupError"></div>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="signup__logup-error">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="signup__logup-error" id="homeLogupError"></div>
+                        {% endif %}
+                    {% endwith %}
                     <div class="signup__logup-inputs">
                         <i class='bx bx-user signup__logup-icon'></i>
                         <input 

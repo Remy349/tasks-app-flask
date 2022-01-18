@@ -5,5 +5,39 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>My Tasks</h1>
+    <section class="tasks">
+        <div class="tasks__container container">
+            <div class="tasks__forms">
+                <div class="tasks__forms-container">
+                    <form action="" method="POST" accept-charset="utf-8" class="tasks__form">
+                        <div class="tasks__form-title">
+                            <h1>Add a Task</h1>
+                            <a id="hideBtn">Hide</a>
+                        </div>
+                        <div class="tasks__form-inputs" id="hideForm">
+                            <i class='bx bx-pencil tasks__form-icon'></i>
+                            <input
+                                type="text"
+                                class="tasks__form-input"
+                                placeholder="Title"
+                                autocomplete="off"
+                                name="title"
+                            />
+                        </div>
+                        <div class="tasks__form-textarea" id="hideForm">
+                            <textarea name="description" placeholder="Description" cols="10" rows="5"></textarea>
+                        </div>
+                        <div class="tasks__form-btns" id="hideForm">
+                            <button class="tasks__form-btn" type="submit">
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="tasks__lists">
+                <h1>Aun no hay tareas agregadas</h1>
+            </div>
+        </div>
+    </section>
 {% endblock content %}

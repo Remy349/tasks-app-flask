@@ -347,4 +347,8 @@ a {
   cursor: pointer;
 }
 
+.none {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

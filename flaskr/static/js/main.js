@@ -18,15 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     const http = new XMLHttpRequest();
                     http.open('GET', '/tasks_get');
                     http.onload = () => {
-                        const task = JSON.parse(http.responseText);
-                        console.log(task);
+                        const tasks = JSON.parse(http.responseText);
+                        const addTasks = document.getElementById('addTasks');
                     };
                     http.send();
                 } else {
                     throw 'Error en la llamada AJAX';
                 }
             }).catch(function(err) {
-                console.log(err);
+                alert(err);
             });
             
             e.preventDefault();

@@ -1,3 +1,13 @@
+@mixin btn-task($bg-color) {
+    padding: 10px 0;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    background: $bg-color;
+    width: 30%;
+    cursor: pointer;
+}
+
 .tasks {
     &__container {
         display: grid;
@@ -85,6 +95,53 @@
             color: #fff;
             font-size: 1.1rem;
             cursor: pointer;
+        }
+    }
+
+    &__lists {
+        &-user {
+            & h1 {
+                font-size: 1.8rem;
+                color: #fff;
+                margin-bottom: 2rem;
+            }
+        }
+
+        &-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+    }
+
+    &__task {
+        background: #fff;
+        color: #1a1a1a;
+        padding: 20px;
+        display: grid;
+        gap: 1.5rem;
+        border-radius: .5rem;
+        width: 100%;
+
+        &-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        &-description { font-size: 1.1rem; }
+
+        &-btns {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        &-btn:nth-child(1) { @include btn-task(#243b55); }
+
+        &-btn:nth-child(2) { @include btn-task(#ff4d4d); }
+
+        &-icon {
+            color: #fff;
+            font-size: 1.25rem;
         }
     }
 }

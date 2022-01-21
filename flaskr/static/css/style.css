@@ -51,7 +51,6 @@ a {
 
 /* MAIN */
 .main {
-  height: calc(100vh - 5rem);
   margin-top: 5rem;
 }
 
@@ -62,6 +61,7 @@ a {
   }
 }
 .footer {
+  margin-top: 3rem;
   height: 5rem;
   background: #1a1a1a;
   color: #fff;
@@ -345,6 +345,58 @@ a {
   color: #fff;
   font-size: 1.1rem;
   cursor: pointer;
+}
+.tasks__lists-user h1 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+.tasks__lists-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.tasks__task {
+  background: #fff;
+  color: #1a1a1a;
+  padding: 20px;
+  display: grid;
+  gap: 1.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.tasks__task-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.tasks__task-description {
+  font-size: 1.1rem;
+}
+.tasks__task-btns {
+  display: flex;
+  justify-content: space-evenly;
+}
+.tasks__task-btn:nth-child(1) {
+  padding: 10px 0;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  background: #243b55;
+  width: 30%;
+  cursor: pointer;
+}
+.tasks__task-btn:nth-child(2) {
+  padding: 10px 0;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  background: #ff4d4d;
+  width: 30%;
+  cursor: pointer;
+}
+.tasks__task-icon {
+  color: #fff;
+  font-size: 1.25rem;
 }
 
 .none {

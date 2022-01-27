@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     http.onload = () => {
                         const tasks = JSON.parse(http.responseText);
                         const addTasks = document.getElementById('addTasks');
+
+                        addTasks.innerHTML = `
+                            <div class="tasks__task">
+                                Hola
+                            </div>
+                        `;
                     };
                     http.send();
                 } else {

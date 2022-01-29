@@ -40,28 +40,24 @@
                     <h1>User: {{ username }}</h1>
                 </div>
                 <div class="tasks__lists-list" id="addTasks">
-                    {% if tasks|length == 0 %}
-                        <h2>There aren´t any tasks save yet!</h2>
-                    {% else %}
-                        {% for t in tasks %}
-                            <div class="tasks__task">
-                                <p class="tasks__task-title">
-                                    Title: {{ t.title }}
-                                </p>
-                                <p class="tasks__task-description">
-                                    Description: {{ t.description }}
-                                </p>
-                                <div class="tasks__task-btns">
-                                    <button class="tasks__task-btn">
-                                        <i class='bx bx-edit tasks__task-icon'></i>
-                                    </button>
-                                    <button class="tasks__task-btn">
-                                        <i class='bx bx-trash tasks__task-icon'></i>
-                                    </button>
-                                </div>
+                    {% for t in tasks %}
+                        <div class="tasks__task">
+                            <p class="tasks__task-title">
+                                Title: {{ t.title }}
+                            </p>
+                            <p class="tasks__task-description">
+                                Description: {{ t.description }}
+                            </p>
+                            <div class="tasks__task-btns">
+                                <button class="tasks__task-btn">
+                                    <i class='bx bx-edit tasks__task-icon'></i>
+                                </button>
+                                <button class="tasks__task-btn">
+                                    <i class='bx bx-trash tasks__task-icon'></i>
+                                </button>
                             </div>
-                        {% endfor %}
-                    {% endif %}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

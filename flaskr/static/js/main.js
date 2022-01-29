@@ -12,28 +12,59 @@ document.addEventListener('DOMContentLoaded', () => {
             
             fetch('/tasks', {
                 method: 'POST',
-                body: data
-            }).then(function(response) {
-                if (response.ok) {
-                    const http = new XMLHttpRequest();
-                    http.open('GET', '/tasks_get');
-                    http.onload = () => {
-                        const tasks = JSON.parse(http.responseText);
-                        const addTasks = document.getElementById('addTasks');
+                body: data,
+            })
+                .then(function(resp) {
+                    if (resp.ok) {
+                        fetch('/tasks_get')
+                            .then(resp => resp.json())
+                            .then(function(data) {
+                                const addTasks = document.getElementById('addTasks');
+                                let divTasks = createNode('div'),
+                                    pTitle = createNode('p'),
+                                    pDesc = createNode('p'),
+                                    divBtns = createNode('div'),
+                                    btnOne = createNode('button'),
+                                    btnTwo = createNode('button'),
+                                    iEdit = createNode('i'),
+                                    iTrash = createNode('i');
 
-                        addTasks.innerHTML = `
-                            <div class="tasks__task">
-                                Hola
-                            </div>
-                        `;
-                    };
-                    http.send();
-                } else {
-                    throw 'Error en la llamada AJAX';
-                }
-            }).catch(function(err) {
-                alert(err);
-            });
+                                divTasks.classList.add('tasks__task');
+                                pTitle.classList.add('tasks__task-title');
+                                pDesc.classList.add('tasks__task-description');
+                                divBtns.classList.add('tasks__task-btns');
+                                btnOne.classList.add('tasks__task-btn');
+                                btnTwo.classList.add('tasks__task-btn');
+                                iEdit.classList.add('bx');
+                                iEdit.classList.add('bx-edit');
+                                iEdit.classList.add('tasks__task-icon');
+                                iTrash.classList.add('bx');
+                                iTrash.classList.add('bx-trash');
+                                iTrash.classList.add('tasks__task-icon');
+
+                                data.forEach(d => {
+                                    pTitle.innerText = d.title;
+                                    pDesc.innerText = d.description;
+                                    appendNode(divTasks, pTitle);
+                                    appendNode(divTasks, pDesc);
+                                    appendNode(btnOne, iEdit);
+                                    appendNode(btnTwo, iTrash);
+                                    appendNode(divBtns, btnOne);
+                                    appendNode(divBtns, btnTwo);
+                                    appendNode(divTasks, divBtns);
+                                    appendNode(addTasks, divTasks);
+                                });
+                            })
+                            .catch(function(err) {
+                                alert(err);
+                            })
+                        ;
+                    } else { throw 'Error en la lamada AJAX!'; }
+                })
+                .catch(function(err) {
+                    alert(err);
+                })
+            ;
             
             e.preventDefault();
         };
@@ -68,9 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     errors = true;
                 }
 
-                if (errors) {
-                    e.preventDefault();
-                }
+                if (errors) { e.preventDefault(); }
             });
         } else {
             homeLogup.addEventListener('submit', (e) => {
@@ -98,10 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     errors = true;
                 }
 
-                if (errors) {
-                    e.preventDefault();
-                }
+                if (errors) { e.preventDefault(); }
             });
         }
     }
 });
+
+function createNode(element) { return document.createElement(element); }
+
+function appendNode(parent, child) { return parent.appendChild(child); }

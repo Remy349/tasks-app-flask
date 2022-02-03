@@ -1,10 +1,8 @@
-from flaskr import app
+from flaskr import app, db
 from flask import render_template, request, redirect, url_for, jsonify, session
 from helpers import login_required
 
 from .models import Tasks, Users
-
-tasks_list = []
 
 @app.route("/", methods=["GET"])
 def index():
@@ -19,15 +17,29 @@ def tasks():
         user_id = session["user_id"]
         user = Users.query.get(user_id)
         username = user.username
-        print(tasks_list, user)
-        return render_template("routes/tasks.html", username=username, tasks=tasks_list)
+        # Llamar a todas las tareas del usuario que este en la sesion
+        tasks = user.tasks.all()
+        return render_template("routes/tasks.html", username=username, tasks=tasks)
 
 @app.route("/tasks_get", methods=["GET"])
 def tasks_get():
-    """ 
+    """
         El cliente realizara una llamada a esta ruta del servidor para 
         obtener los datos de manera ascincrona sin recargar la pagina
     """
+    user_id = session["user_id"]
+    user = Users.query.get(user_id)
+    tasks = user.tasks.all()
+    tasks_list = []
+
+    for t in tasks:
+        task = {
+            "title": t.title,
+            "description": t.description,
+            "timestamp": t.timestamp,
+        }
+        tasks_list.append(task)
+
     return jsonify(tasks_list)
 
 @app.route("/tasks", methods=["POST"])
@@ -36,10 +48,11 @@ def tasks_post():
     if request.method == "POST":
         title = request.form["title"]
         description = request.form["description"]
-        task = {
-            "title": title,
-            "description": description
-        }
-        tasks_list.append(task)
-        print(tasks_list)
+        user_id = session["user_id"]
+        user = Users.query.get(user_id)
+
+        new_task = Tasks(title=title, description=description, author=user)
+        db.session.add(new_task)
+        db.session.commit()
+
         return redirect(url_for("tasks"))

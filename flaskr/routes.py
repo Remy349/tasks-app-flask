@@ -34,9 +34,9 @@ def tasks_get():
 
     for t in tasks:
         task = {
+            "id": t.id,
             "title": t.title,
             "description": t.description,
-            "timestamp": t.timestamp,
         }
         tasks_list.append(task)
 
@@ -56,3 +56,9 @@ def tasks_post():
         db.session.commit()
 
         return redirect(url_for("tasks"))
+
+@app.route("/tasks/delete/<int:task_id>", methods=["GET"])
+def delete_tasks(task_id):
+    """ Funcion para manejar el borrado de tareas de la basse de datos """
+    print(f"Tarea con el id '{task_id}' eliminada!")
+    return redirect(url_for("tasks"))

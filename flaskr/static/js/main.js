@@ -23,18 +23,21 @@ document.addEventListener('DOMContentLoaded', () => {
                                 let divTasks = createNode('div'),
                                     pTitle = createNode('p'),
                                     pDesc = createNode('p'),
+                                    pDate = createNode('p'),
                                     divBtns = createNode('div'),
-                                    btnOne = createNode('button'),
-                                    btnTwo = createNode('button'),
+                                    btnOne = createNode('a'),
+                                    btnTwo = createNode('a'),
                                     iEdit = createNode('i'),
                                     iTrash = createNode('i');
 
                                 divTasks.classList.add('tasks__task');
                                 pTitle.classList.add('tasks__task-title');
                                 pDesc.classList.add('tasks__task-description');
+                                pDate.classList.add('tasks__task-date');
                                 divBtns.classList.add('tasks__task-btns');
                                 btnOne.classList.add('tasks__task-btn');
                                 btnTwo.classList.add('tasks__task-btn');
+                                btnTwo.classList.add('delete-btn');
                                 iEdit.classList.add('bx');
                                 iEdit.classList.add('bx-edit');
                                 iEdit.classList.add('tasks__task-icon');
@@ -43,16 +46,31 @@ document.addEventListener('DOMContentLoaded', () => {
                                 iTrash.classList.add('tasks__task-icon');
 
                                 data.forEach(d => {
-                                    pTitle.innerText = d.title;
-                                    pDesc.innerText = d.description;
+                                    // Formato de fecha
+                                    let getTheDate = new Date(),
+                                        date = getTheDate.toISOString(),
+                                        dateCut = date.slice(0, 10);
+                                    let finalDate = dateCut.replaceAll('-', '/');
+                                    // Agregar texto a las cards de las tareas 
+                                    pTitle.innerText = `Title: ${d.title}`;
+                                    pDesc.innerText = `Description: ${d.description}`;
+                                    pDate.innerText = `Date: ${finalDate}`;
+                                    // Agregar link a los botones
+                                    btnOne.setAttribute('href', `/tasks/edit/${d.id}`);
+                                    btnTwo.setAttribute('href', `/tasks/delete/${d.id}`);
                                     appendNode(divTasks, pTitle);
                                     appendNode(divTasks, pDesc);
+                                    appendNode(divTasks, pDate);
                                     appendNode(btnOne, iEdit);
                                     appendNode(btnTwo, iTrash);
                                     appendNode(divBtns, btnOne);
                                     appendNode(divBtns, btnTwo);
                                     appendNode(divTasks, divBtns);
                                     appendNode(addTasks, divTasks);
+                                    // Llamar funcion para eliminar tarea
+                                    btnTwo.addEventListener('click', () => {
+                                        deleteTask(d.id);
+                                    });
                                 });
                             })
                             .catch(function(err) {
@@ -132,6 +150,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+function deleteTask(id) {
+    const btnsTwo = document.querySelectorAll('.delete-btn');
+
+    btnsTwo.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            alert(`Eliminando la tarea con el id ${id}`);
+
+            e.preventDefault();
+        });
+    });
+}
 
 function createNode(element) { return document.createElement(element); }
 

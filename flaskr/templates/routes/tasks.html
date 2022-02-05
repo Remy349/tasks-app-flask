@@ -48,13 +48,16 @@
                             <p class="tasks__task-description">
                                 Description: {{ t.description }}
                             </p>
+                            <p class="tasks__task-date">
+                                Date: {{ t.timestamp.strftime('%Y/%m/%d') }}
+                            </p>
                             <div class="tasks__task-btns">
-                                <button class="tasks__task-btn">
+                                <a href="/tasks/edit/{{ t.id }}" class="tasks__task-btn">
                                     <i class='bx bx-edit tasks__task-icon'></i>
-                                </button>
-                                <button class="tasks__task-btn">
+                                </a>
+                                <a href="/tasks/delete/{{ t.id }}" class="tasks__task-btn delete-btn">
                                     <i class='bx bx-trash tasks__task-icon'></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     {% endfor %}

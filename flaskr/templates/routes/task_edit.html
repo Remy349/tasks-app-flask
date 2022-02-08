@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    TasksApp - Edit({{ task.id }})
+{% endblock title %}
+
+{% block content %}
+    <section class="edit">
+        <div class="edit__container container">
+            <div class="edit__forms">
+                <form action="/tasks/edit/{{ task.id }}" method="POST" class="edit__form" accept-charset="utf-8">
+                    <div class="edit__form-title">
+                        <h1>Edit your task!</h1>
+                    </div>
+                    <div class="edit__form-inputs">
+                        <input
+                            type="text"
+                            placeholder="Title"
+                            name="title"
+                            value="{{ task.title }}"
+                            class="edit__form-input"
+                            autocomplete="off"
+                        />
+                    </div>
+                    <div class="edit__form-textarea">
+                        <textarea name="description" placeholder="Description" cols="10" rows="5">
+                            {{ task.description }}
+                        </textarea>
+                    </div>
+                    <div class="edit__form-btns">
+                        <button class="edit__form-btn" type="submit">
+                            Save
+                        </button>
+                    </div>
+                    <div class="edit__form-btns">
+                        <a href="/tasks" class="edit__form-btn">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

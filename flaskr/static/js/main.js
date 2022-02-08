@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                     // Agregar link a los botones
                                     btnOne.setAttribute('href', `/tasks/edit/${d.id}`);
                                     btnTwo.setAttribute('href', `/tasks/delete/${d.id}`);
+                                    /* Agregar los elementos creados luego de haber enviando los datos al
+                                    servidor y que este los procesara inmediatamente, esto sin recargar la pagina */
                                     appendNode(divTasks, pTitle);
                                     appendNode(divTasks, pDesc);
                                     appendNode(divTasks, pDate);
@@ -67,10 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                     appendNode(divBtns, btnTwo);
                                     appendNode(divTasks, divBtns);
                                     appendNode(addTasks, divTasks);
-                                    // Llamar funcion para eliminar tarea
-                                    btnTwo.addEventListener('click', () => {
-                                        deleteTask(d.id);
-                                    });
                                 });
                             })
                             .catch(function(err) {
@@ -150,18 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-
-function deleteTask(id) {
-    const btnsTwo = document.querySelectorAll('.delete-btn');
-
-    btnsTwo.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            alert(`Eliminando la tarea con el id ${id}`);
-
-            e.preventDefault();
-        });
-    });
-}
 
 function createNode(element) { return document.createElement(element); }
 

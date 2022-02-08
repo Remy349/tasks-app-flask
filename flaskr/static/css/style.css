@@ -408,4 +408,21 @@ a {
   display: none;
 }
 
+/* EDIT TASK */
+.edit__forms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit__form {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 20px 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  text-align: center;
+  width: 30%;
+}
+
 /*# sourceMappingURL=style.css.map */

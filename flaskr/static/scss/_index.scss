@@ -114,3 +114,10 @@
         }
     }
 }
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 600px) {
+    .home {
+        &__container { grid-template-columns: 1fr; }
+    }
+}

@@ -58,15 +58,27 @@ def tasks_post():
         return redirect(url_for("tasks"))
 
 @app.route("/tasks/edit/<int:task_id>", methods=["GET", "POST"])
+@login_required
 def edit_tasks(task_id):
     """ Funcion para la edicion de las tareas """
     if request.method == "GET":
         task = Tasks.query.filter_by(id=task_id).first()
         return render_template("routes/task_edit.html", task=task)
     elif request.method == "POST":
-        pass
+        title = request.form["title"]
+        description = request.form["description"]
+
+        task = Tasks.query.filter_by(id=task_id).first()
+        task.title = title
+        task.description = description
+
+        db.session.add(task)
+        db.session.commit()
+
+        return redirect(url_for("tasks"))
 
 @app.route("/tasks/delete/<int:task_id>", methods=["GET"])
+@login_required
 def delete_tasks(task_id):
     """ Funcion para manejar el borrado de tareas de la basse de datos """
     task = Tasks.query.filter_by(id=task_id).first()

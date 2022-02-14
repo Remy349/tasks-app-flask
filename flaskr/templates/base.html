@@ -14,7 +14,20 @@
     <header class="header">
         <!-- NAV -->
         <nav class="nav container">
-            <a href="{{ url_for('index') }}" class="nav__logo">TasksApp</a>
+            {% if session.user_id %}
+                <a href="{{ url_for('tasks') }}" class="nav__logo">TasksApp</a>
+                <div class="nav__menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="{{ url_for('logout') }}" class="nav__link">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% else %}
+                <a href="{{ url_for('index') }}" class="nav__logo">TasksApp</a>
+            {% endif %}
         </nav>
     </header>
     <!-- PRINCIPAL CONTENT -->

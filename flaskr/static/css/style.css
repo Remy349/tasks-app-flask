@@ -22,6 +22,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -47,6 +51,11 @@ a {
 .nav__logo {
   color: #fff;
   font-size: 1.4rem;
+}
+.nav__link {
+  color: #fff;
+  font-size: 1.05rem;
+  cursor: pointer;
 }
 
 /* MAIN */
@@ -187,6 +196,12 @@ a {
   animation: 3s animate-forms infinite;
 }
 
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 600px) {
+  .home__container {
+    grid-template-columns: 1fr;
+  }
+}
 /* SIGNUP */
 @keyframes animate-signup {
   0% {
@@ -209,7 +224,7 @@ a {
   background: #fff;
   border-radius: 0.5rem;
   padding: 2rem 2rem;
-  width: 35%;
+  width: auto;
   text-align: center;
   display: grid;
   gap: 1.5rem;
@@ -408,6 +423,20 @@ a {
   display: none;
 }
 
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 800px) {
+  .tasks__container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tasks__lists-list {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 600px) {
+  .tasks__container {
+    grid-template-columns: 1fr;
+  }
+}
 /* EDIT TASK */
 .edit__forms {
   display: flex;
@@ -417,12 +446,90 @@ a {
 .edit__form {
   background: #fff;
   border-radius: 0.5rem;
-  padding: 20px 10px;
+  padding: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
   text-align: center;
-  width: 30%;
+}
+.edit__form-title h1 {
+  font-size: 1.5rem;
+}
+.edit__form-inputs {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 1rem;
+  background: #ccc;
+  padding: 1.125rem 1rem;
+  border-radius: 0.5rem;
+}
+.edit__form-icon {
+  color: #1a1a1a;
+  font-size: 1.5rem;
+}
+.edit__form-input {
+  border: none;
+  outline: none;
+  background: #ccc;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 100%;
+}
+.edit__form-textarea {
+  background: #ccc;
+  padding: 1.125rem 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.edit__form-textarea textarea {
+  width: 100%;
+  resize: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: #ccc;
+  border: none;
+  outline: none;
+}
+.edit__form-save {
+  width: 100%;
+  padding: 15px 0;
+  background: #009933;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.edit__form-contcancel {
+  background: #ff4d4d;
+  padding: 15px 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.edit__form-cancel {
+  padding: 15px 115px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 800px) {
+  .container {
+    max-width: 700px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 530px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container {
+    max-width: 300px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

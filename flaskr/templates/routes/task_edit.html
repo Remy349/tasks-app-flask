@@ -13,6 +13,7 @@
                         <h1>Edit your task!</h1>
                     </div>
                     <div class="edit__form-inputs">
+                        <i class='bx bx-pencil edit__form-icon'></i>
                         <input
                             type="text"
                             placeholder="Title"
@@ -23,17 +24,15 @@
                         />
                     </div>
                     <div class="edit__form-textarea">
-                        <textarea name="description" placeholder="Description" cols="10" rows="5">
-                            {{ task.description }}
-                        </textarea>
+                        <textarea name="description" placeholder="Description" cols="10" rows="5">{{ task.description }}</textarea>
                     </div>
                     <div class="edit__form-btns">
-                        <button class="edit__form-btn" type="submit">
+                        <button class="edit__form-save" type="submit">
                             Save
                         </button>
                     </div>
-                    <div class="edit__form-btns">
-                        <a href="/tasks" class="edit__form-btn">
+                    <div class="edit__form-contcancel">
+                        <a href="/tasks" class="edit__form-cancel">
                             Cancel
                         </a>
                     </div>

@@ -151,3 +151,19 @@
 }
 
 .none { display: none; }
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 800px) {
+    .tasks {
+        &__container { grid-template-columns: 1fr 1fr; }
+        &__lists {
+            &-list { grid-template-columns: 1fr; }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tasks {
+        &__container { grid-template-columns: 1fr; }
+    }
+}

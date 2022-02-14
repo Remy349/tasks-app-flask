@@ -20,6 +20,8 @@ body {
 
 a { text-decoration: none; }
 
+ul { list-style: none; }
+
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -45,6 +47,12 @@ a { text-decoration: none; }
     &__logo {
         color: #fff;
         font-size: 1.4rem;
+    }
+
+    &__link {
+        color: #fff;
+        font-size: 1.05rem;
+        cursor: pointer;
     }
 }
 /* MAIN */
@@ -84,3 +92,16 @@ a { text-decoration: none; }
 @import './tasks';
 /* EDIT TASK */
 @import './taskEdit';
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 800px) {
+    .container { max-width: 700px; }
+}
+
+@media screen and (max-width: 600px) {
+    .container { max-width: 530px; }
+}
+
+@media screen and (max-width: 400px) {
+    .container { max-width: 300px; }
+}
